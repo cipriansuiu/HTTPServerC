@@ -1,0 +1,4 @@
+C:\Users\Ciprian\.CLion2017.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Ciprian/CLionProjects/untitled8
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/Ciprian/CLionProjects/untitled8/cmake-build-debug
