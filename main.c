@@ -42,35 +42,35 @@ int main(int argc,char *argv[]) {
         error("ERROR on binding");
     }
     listen(sockfd,10);
-    clilen=sizeof(cli_addr);
-    newsockfd=accept(sockfd,(struct sockaddr *) &cli_addr,&clilen);
-    if(newsockfd<0)
-    {
-        close(sockfd);
-        close(newsockfd);
 
-        error("ERROR on accept");
+    while(1) {
+        clilen = sizeof(cli_addr);
+        newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
+        if (newsockfd < 0) {
+            close(sockfd);
+            close(newsockfd);
+
+            error("ERROR on accept");
+        }
+
+        bzero(buffer, 256);
+        n = read(newsockfd, buffer, 256);
+        if (n < 0) {
+            close(sockfd);
+            close(newsockfd);
+
+            error("ERROR reading from socket");
+
+        }
+        printf("Here is the message:%s\n", buffer);
+        n = write(newsockfd, "I got your message", 18);
+        if (n < 0) {
+            close(sockfd);
+            close(newsockfd);
+
+            error("Error in writing");
+        }
     }
-    bzero(buffer,256);
-    n=read(newsockfd,buffer,256);
-    if(n<0)
-    {
-        close(sockfd);
-        close(newsockfd);
-
-        error("ERROR reading from socket");
-
-    }
-    printf("Here is the message:%s\n",buffer);
-    n=write(newsockfd,"I got your message",18);
-    if(n<0)
-    {
-        close(sockfd);
-        close(newsockfd);
-
-        error("Error in writing");
-    }
-
 
     return 0;
 }
