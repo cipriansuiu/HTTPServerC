@@ -21,4 +21,10 @@ strings.h
 -
 unistd.h
 -
+pthread.h
+-
+ctype.h
+-
+memory.h
+-
 

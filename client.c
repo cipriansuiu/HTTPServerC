@@ -1,7 +1,7 @@
 //
 // Created by Ciprian on 10/17/17.
 //
-/*
+
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -16,6 +16,7 @@ void error(char *msg)
     perror(msg);
     exit(1);
 }
+
 
 int secondmain(int argc,char *argv[]) {
     int sockfd, newsockfd, portno, clilen,n;
@@ -47,16 +48,19 @@ int secondmain(int argc,char *argv[]) {
     {
         error("Error connecting");
     }
-    printf("Please enter the message:");
-    bzero(buffer,256);
-    fgets(buffer,255,stdin);
-    n=writev(sockfd,buffer,strlen(buffer));
-    if(n<0)
-    {
-        error("ERROR writing to socket");
-    }
+    while()
 
+    {
+
+        printf("Please enter the message:");
+        bzero(buffer, 256);
+
+        fgets(buffer, 255, stdin);
+        n = writev(sockfd, buffer, strlen(buffer));
+        if (n < 0) {
+            error("ERROR writing to socket");
+        }
+    }
     return 0;
 
 }
- */
